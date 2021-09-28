@@ -8,11 +8,7 @@ export const getQuestionsAnswered = () => async (dispatch) => {
     const questions = { question1, question2 };
     let author = store.getState().auth.user.id;
     _saveQuestion({ question1, question2, author });
-    console.log({ question1, question2, author });
     const ques = _getQuestions();
-    console.log("ques >>>>> ", ques);
-
-
     dispatch({
       type: SAVE_QUES,
       payload: { question1, question2, author },

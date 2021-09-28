@@ -31,7 +31,6 @@ function Login({ location, history, path }) {
   Object.entries(users).map(([key, type]) => {
     options.push({ label: key, value: type });
   });
-  console.log("==============> > object users =======>  ", users);
   users &&
     users.length > 0 &&
     users.map((item) => options.push({ label: item.name, value: item.id }));

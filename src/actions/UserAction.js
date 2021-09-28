@@ -3,8 +3,6 @@ import { _getTweets, _getUsers } from "../utils/_DATA";
 import { Load_Users } from "./constants";
 
 const UserAction = () => async (dispatch) => {
-  console.log("Inside Action User");
-
   try {
     let users = [];
     const res = await _getUsers();
