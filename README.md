@@ -1,13 +1,14 @@
-# Chirper Project
+# LOADBOARD Project
 
-This repo is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
 
 Most of the commits in this repository correspond to videos in the program.
 
-## Project Setup
+§## Project Setup
 
-* clone the Project - `git@github.com:udacity/reactnd-chirper-app.git`
+* clone the Project - `git@github.com:udacity/`
+* git clone  `https://github.com/hishamazmy2015/LoadBoard.git`
 * install the dependencies - `npm install`
+* `npm run start`
 
 ## Contributing
 
