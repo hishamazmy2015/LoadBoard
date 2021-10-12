@@ -7,7 +7,7 @@ export const LoaderBoard = (state = initialState, action) => {
 
   switch (type) {
     case Load_data:
-      return (this.state = [...state, payload]);
+      return (this.state = [payload, ...state]);
     default:
       return state;
   }

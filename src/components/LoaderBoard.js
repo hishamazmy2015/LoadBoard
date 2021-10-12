@@ -15,9 +15,20 @@ function LoaderBoard() {
     dispatch(fetchQuestions());
   };
   useEffect(() => readFun(), []);
-  const usersList = Object.keys(users).map((key) => users[key]);
+  let usersList = Object.keys(users).map((key) => users[key]);
   const answers = Object.keys(auth.user.answers).map((key) => key);
   const questions = Object.keys(questionss).map((key) => questionss[key]);
+
+  // usersList.sort((a, b) =>  Object.keys(a.answers).length > Object.keys(a.answers).length)
+
+  // usersList.sort((a, b) => { return Object.keys(a.answers).length - b.answers.length })
+
+  // usersList.sort((a, b) =>  Object.keys(a.answers).length - Object.keys(b.answers).length)
+  // usersList = usersList.sort((u) => u.answers.length).reverse();
+  // const sortedUser= Object.keys(user.answers).map((key) => key).length +
+  //   user.questions.length
+  // homes.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+  // usersList = usersList.sort((a)=>a.);
 
   const Answers =
     answers &&
@@ -36,49 +47,54 @@ function LoaderBoard() {
   const UnAnswers = questions.filter(
     (questId) => !answerQuestions.includes(questId)
   );
-
   return (
     <div>
       <Container id="left-tabs-example" defaultActiveKey="first">
         <Row>
           <div>
-            {usersList.map((user) => (
-              <Row>
-                <Card>
-                  <Col>
-                    {user.avatarURL ? (
-                      <img src={user.avatarURL} height={90} width={80} />
-                    ) : (
-                      <img
-                        src="../../images/avataaars_5.png"
-                        height={90}
-                        width={80}
-                      />
-                    )}
-                  </Col>
+            {usersList
+              .sort(
+                (a, b) =>
+                  Object.keys(a.answers).length - Object.keys(b.answers).length
+              )
+              .map((user) => (
+                <Row>
+                  <Card>
+                    <Col>
+                      {user.avatarURL ? (
+                        <img src={user.avatarURL} height={90} width={80} />
+                      ) : (
+                        <img
+                          src="../../images/avataaars_5.png"
+                          height={90}
+                          width={80}
+                        />
+                      )}
+                    </Col>
 
-                  <Col>
-                    <div>
-                      <h3>{user.name}</h3>
-                      <p>
-                        {" "}
-                        Answered Questions :{" "}
-                        {
-                          Object.keys(user.answers).map((key) => key).length
-                        }{" "}
-                      </p>
-                      <p> Created Questions : {user.questions.length}</p>
-                    </div>
-                  </Col>
-                  <Col>
-                    {" "}
-                    Score :{" "}
-                    {Object.keys(user.answers).map((key) => key).length +
-                      user.questions.length}
-                  </Col>
-                </Card>
-              </Row>
-            ))}
+                    <Col>
+                      <div>
+                        <h3>{user.name}</h3>
+                        <p>
+                          {" "}
+                          Answered Questions :{" "}
+                          {
+                            Object.keys(user.answers).map((key) => key).length
+                          }{" "}
+                        </p>
+                        <p> Created Questions : {user.questions.length}</p>
+                      </div>
+                    </Col>
+
+                    <Col>
+                      {" "}
+                      Score :{" "}
+                      {Object.keys(user.answers).map((key) => key).length +
+                        user.questions.length}
+                    </Col>
+                  </Card>
+                </Row>
+              ))}
           </div>
         </Row>
       </Container>

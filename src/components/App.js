@@ -11,6 +11,7 @@ import Login from "./Login";
 import LoaderBoard from "./LoaderBoard";
 import AnswerQuestion from "./AnswerQuestion";
 import ShowResult from "./ShowResult";
+import Page404 from './Page404'
 
 const App = () => {
   return (
@@ -19,12 +20,14 @@ const App = () => {
         <NavBar />
         <Switch>
           {/* <privateRoute component={}  /> */}
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute exact path="/" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/loaderboard" component={LoaderBoard} />
           <PrivateRoute exact path="/question" component={QuestionComponent} />
-          <Route exact path="/answerQuestion" component={AnswerQuestion} />
-          <Route exact path="/showResult" component={ShowResult} />
+          <Route exact path="/question/:questionId" component={AnswerQuestion} />
+          <Route exact path="/user/showResult/:questionId" component={ShowResult} />
+          <Route component={Page404} />
+
           logout
           {/* <Route exact path="/tweets" component={Tweets} /> */}
         </Switch>

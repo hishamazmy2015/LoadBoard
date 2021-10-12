@@ -17,7 +17,7 @@ function Dashboard() {
   };
   useEffect(() => readFun(), []);
   const usersList = Object.keys(users).map((key) => users[key]);
-  
+
   const answers = Object.keys(auth.user.answers).map((key) => key);
 
   const questions = Object.keys(questionss).map((key) => questionss[key]);
@@ -45,7 +45,7 @@ function Dashboard() {
       <Container id="left-tabs-example" defaultActiveKey="first">
         <Row>
           <Tabs
-            defaultActiveKey="home"
+            defaultActiveKey="profile"
             transition={false}
             id="noanim-tab-example"
             className="mb-6"
@@ -90,6 +90,5 @@ function Dashboard() {
     </div>
   );
 }
-
 
 export default Dashboard;

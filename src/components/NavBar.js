@@ -20,7 +20,7 @@ function NavBar({ history }) {
         <Container>
           {/* <Navbar.Brand href="/dashboard"></Navbar.Brand> */}
           {/* <Nav className="me-auto"> */}
-          <Link to="/dashboard">Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/question">New Question</Link>
           <Link to="/loaderboard">Loader Board</Link>
 

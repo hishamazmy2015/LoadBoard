@@ -8,7 +8,7 @@ const QuestionReducer = (state = initialState, action) => {
   switch (type) {
     case SAVE_QUES:
     case LOAD_QUES:
-      return { ...state, ...payload };
+      return {...payload, ...state };
     default:
       return state;
   }

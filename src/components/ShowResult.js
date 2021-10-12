@@ -56,6 +56,10 @@ function ShowResult({ location, history }) {
                   <ProgressBar now={rationQOne} label={rationQOne} />
                   {rationQOne} %
                   <br />
+                  <span>
+                    {lenQOne} out of {total}{" "}
+                  </span>
+                  <br />
                   <br />
                   <span
                     style={{
@@ -76,7 +80,12 @@ function ShowResult({ location, history }) {
                   </Form.Label>
                   <ProgressBar now={rationQTwo} label={rationQTwo} />
                   {rationQTwo} %
+                  <br />
+                  <span>
+                    {lenQTwo} out of {total}{" "}
+                  </span>
                 </Form.Group>
+
                 <Link to="/LoaderBoard">Back</Link>
               </Form>
             </Card>

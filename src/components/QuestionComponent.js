@@ -14,7 +14,7 @@ function QuestionComponent({ history }) {
   const onSubmitForm = (e) => {
     e.preventDefault();
     dispatch(saveQuestion(stateForm));
-    history.push("/loaderboard");
+    history.push("/");
   };
 
   return (

@@ -15,7 +15,7 @@ function AnswerQuestion({ location, history }) {
   const onSubmitForm = (e) => {
     e.preventDefault();
     dispatch(saveQuestionAnswer(questionId, question));
-    history.push("/loaderboard");
+    history.push("/");
   };
 
   const handleChange = (e) => {

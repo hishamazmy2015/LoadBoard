@@ -46,8 +46,8 @@ function TabQuestionsAns(props) {
                         <div>
                           <Link
                             to={{
-                              pathname: "/showResult",
-                              state: { fromDashboard: quest },
+                              pathname: `/user/showResult/${user.id}`,
+                              state: { fromDashboard: quest },  
                             }}
                           >
                             Show Result
@@ -57,7 +57,7 @@ function TabQuestionsAns(props) {
                         <div>
                           <Link
                             to={{
-                              pathname: "/answerQuestion",
+                              pathname: `/question/${quest.id}`,
                               state: { fromDashboard: quest },
                             }}
                           >
