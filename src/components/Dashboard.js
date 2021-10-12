@@ -59,7 +59,7 @@ function Dashboard() {
                 <Card>
                   {answerQuestions &&
                     answerQuestions.map((quest) => (
-                      <div key={quest}>
+                      <div key={quest.id}>
                         <TabQuestionsAns
                           usersList={usersList}
                           quest={quest}

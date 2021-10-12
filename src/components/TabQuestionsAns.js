@@ -18,7 +18,7 @@ function TabQuestionsAns(props) {
     <div>
       <div>
         {usersList.map((user) => (
-          <div>
+          <div key={user.id}>
             <Card>
               {user.id === quest.author ? (
                 <div>

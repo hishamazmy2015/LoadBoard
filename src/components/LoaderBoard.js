@@ -58,42 +58,44 @@ function LoaderBoard() {
                   Object.keys(a.answers).length - Object.keys(b.answers).length
               )
               .map((user) => (
-                <Row>
-                  <Card>
-                    <Col>
-                      {user.avatarURL ? (
-                        <img src={user.avatarURL} height={90} width={80} />
-                      ) : (
-                        <img
-                          src="../../images/avataaars_5.png"
-                          height={90}
-                          width={80}
-                        />
-                      )}
-                    </Col>
+                <div key={user.id}>
+                  <Row>
+                    <Card>
+                      <Col>
+                        {user.avatarURL ? (
+                          <img src={user.avatarURL} height={90} width={80} />
+                        ) : (
+                          <img
+                            src="../../images/avataaars_5.png"
+                            height={90}
+                            width={80}
+                          />
+                        )}
+                      </Col>
 
-                    <Col>
-                      <div>
-                        <h3>{user.name}</h3>
-                        <p>
-                          {" "}
-                          Answered Questions :{" "}
-                          {
-                            Object.keys(user.answers).map((key) => key).length
-                          }{" "}
-                        </p>
-                        <p> Created Questions : {user.questions.length}</p>
-                      </div>
-                    </Col>
+                      <Col>
+                        <div>
+                          <h3>{user.name}</h3>
+                          <p>
+                            {" "}
+                            Answered Questions :{" "}
+                            {
+                              Object.keys(user.answers).map((key) => key).length
+                            }{" "}
+                          </p>
+                          <p> Created Questions : {user.questions.length}</p>
+                        </div>
+                      </Col>
 
-                    <Col>
-                      {" "}
-                      Score :{" "}
-                      {Object.keys(user.answers).map((key) => key).length +
-                        user.questions.length}
-                    </Col>
-                  </Card>
-                </Row>
+                      <Col>
+                        {" "}
+                        Score :{" "}
+                        {Object.keys(user.answers).map((key) => key).length +
+                          user.questions.length}
+                      </Col>
+                    </Card>
+                  </Row>
+                </div>
               ))}
           </div>
         </Row>
