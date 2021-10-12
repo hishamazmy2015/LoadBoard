@@ -45,6 +45,7 @@ function LoaderBoard() {
                 (a, b) =>
                   Object.keys(a.answers).length - Object.keys(b.answers).length
               )
+              .reverse()
               .map((user) => (
                 <div key={user.id}>
                   <Row>

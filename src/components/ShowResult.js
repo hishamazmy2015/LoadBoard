@@ -15,8 +15,12 @@ function ShowResult({ location, history }) {
   const lenQOne = questionId.optionOne.votes.length;
   const lenQTwo = questionId.optionTwo.votes.length;
   const total = lenQOne + lenQTwo;
-  const rationQOne = (lenQOne / total) * 100;
-  const rationQTwo = (lenQTwo / total) * 100;
+  // const rationQOne = (lenQOne / total) * 100;
+  // const rationQTwo = (lenQTwo / total) * 100;
+
+  const rationQOne = Math.round((lenQOne / total) * 10000) / 100;
+  const rationQTwo = Math.round((lenQTwo / total) * 10000) / 100;
+
   const [question, setQuestion] = useState();
 
   useEffect(() => readFun(), []);

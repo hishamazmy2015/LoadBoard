@@ -142,7 +142,7 @@ export function _getQuestions() {
   });
 }
 
-function formatQuestion({ optionOneText, optionTwoText, author,avatarURL }) {
+function formatQuestion({ optionOneText, optionTwoText, author, avatarURL }) {
   return {
     id: generateUID(),
     timestamp: Date.now(),
@@ -166,8 +166,8 @@ export function _saveQuestion(question) {
 
     setTimeout(() => {
       questions = {
-        ...questions,
         [formattedQuestion.id]: formattedQuestion,
+        ...questions,
       };
 
       users = {
@@ -198,7 +198,6 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
       };
 
       questions = {
-        ...questions,
         [qid]: {
           ...questions[qid],
           [answer]: {
@@ -206,6 +205,7 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
             votes: questions[qid][answer].votes.concat([authedUser]),
           },
         },
+        ...questions,
       };
 
       res();

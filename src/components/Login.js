@@ -21,15 +21,13 @@ function Login({ location, history, path }) {
   }, []);
 
   let options = [];
-  const [stateForm, setStateForm] = useState("");
+  const [stateForm, setStateForm] = useState("Select one of the users ");
   Object.entries(users).map(([key, type]) => {
     options.push({ label: key, value: type });
   });
   users &&
     users.length > 0 &&
     users.map((item) => options.push({ label: item.name, value: item.id }));
-
-  let selectedOption = "";
 
   const handleChange = (selectedOption) => {
     setStateForm(selectedOption);
@@ -51,13 +49,12 @@ function Login({ location, history, path }) {
             <Form onSubmit={(e) => onSubmitForm(e)}>
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="disabledTextInput">
-                  Disabled input
+                  <h4>
+                    <span> Select user To login </span>
+                  </h4>
                 </Form.Label>
-                <Form.Control
-                  id="disabledTextInput"
-                  placeholder="Disabled input"
-                />
               </Form.Group>
+              <br />
               <Select
                 value={stateForm}
                 onChange={handleChange}

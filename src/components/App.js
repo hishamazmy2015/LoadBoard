@@ -23,10 +23,10 @@ const App = () => {
           <PrivateRoute exact path="/" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/loaderboard" component={LoaderBoard} />
-          <PrivateRoute exact path="/question" component={QuestionComponent} />
+          <PrivateRoute exact path="/add" component={QuestionComponent} />
           <Route exact path="/question/:questionId" component={AnswerQuestion} />
           <Route exact path="/user/showResult/:questionId" component={ShowResult} />
-          <Route component={Page404} />
+          <PrivateRoute component={Page404} />
 
           logout
           {/* <Route exact path="/tweets" component={Tweets} /> */}
