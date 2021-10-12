@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Col, Container, Row, Card, Collapse } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestions } from "../actions/questionAction";
 import UserAction from "../actions/UserAction";
@@ -18,18 +18,6 @@ function LoaderBoard() {
   let usersList = Object.keys(users).map((key) => users[key]);
   const answers = Object.keys(auth.user.answers).map((key) => key);
   const questions = Object.keys(questionss).map((key) => questionss[key]);
-
-  // usersList.sort((a, b) =>  Object.keys(a.answers).length > Object.keys(a.answers).length)
-
-  // usersList.sort((a, b) => { return Object.keys(a.answers).length - b.answers.length })
-
-  // usersList.sort((a, b) =>  Object.keys(a.answers).length - Object.keys(b.answers).length)
-  // usersList = usersList.sort((u) => u.answers.length).reverse();
-  // const sortedUser= Object.keys(user.answers).map((key) => key).length +
-  //   user.questions.length
-  // homes.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-  // usersList = usersList.sort((a)=>a.);
-
   const Answers =
     answers &&
     answers.length > 0 &&

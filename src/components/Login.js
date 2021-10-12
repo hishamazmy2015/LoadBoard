@@ -9,13 +9,9 @@ import UserAction from "../actions/UserAction";
 function Login({ location, history, path }) {
   const locations = useLocation();
   const dispatch = useDispatch();
-
-  const referer = locations.state && locations.state.referer;
+  // const referer = locations.state && locations.state.referer;
   let users = useSelector((state) => state.users);
-  // users = users[0];
-
   const authUser = useSelector((state) => state.auth);
-
   const readFun = () => {
     dispatch(UserAction());
   };
@@ -26,8 +22,6 @@ function Login({ location, history, path }) {
 
   let options = [];
   const [stateForm, setStateForm] = useState("");
-  // Object.entries(users).map((key,type) =>  options.push({ label: key, value: type }) )
-
   Object.entries(users).map(([key, type]) => {
     options.push({ label: key, value: type });
   });
@@ -70,7 +64,6 @@ function Login({ location, history, path }) {
                 options={options}
               />
 
-            
               <Button type="submit">Sign In</Button>
             </Form>
           </Card>
