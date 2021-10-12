@@ -7,7 +7,7 @@ export function LoadTweet(state = initialState, action) {
 
   switch (type) {
     case Load_data:
-      this.state = [...state, payload]; 
+      this.state = [payload,...state ]; 
       break;
     default:
       return state;
