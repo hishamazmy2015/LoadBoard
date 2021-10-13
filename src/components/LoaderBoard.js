@@ -37,7 +37,7 @@ function LoaderBoard() {
   );
   return (
     <div>
-      <Container id="left-tabs-example" defaultActiveKey="first">
+      <Container id="left-tabs-example" >
         <Row>
           <div>
             {usersList

@@ -5,15 +5,14 @@ import { fetchQuestions } from "../actions/questionAction";
 import { useDispatch, useSelector } from "react-redux";
 
 function TabQuestionsAns(props) {
-  // let questionss = useSelector((state) => state.questions);
   const { usersList, quest, showResult } = props;
-
   const dispatch = useDispatch();
-
   const readFun = () => {
     dispatch(fetchQuestions());
   };
   useEffect(() => readFun(), []);
+  let questions = useSelector((state) => state.questions);
+
   return (
     <div>
       <div>
@@ -46,8 +45,8 @@ function TabQuestionsAns(props) {
                         <div>
                           <Link
                             to={{
-                              pathname: `/user/showResult/${user.id}`,
-                              state: { fromDashboard: quest },  
+                              pathname: `/questions/${user.id}`,
+                              state: { fromDashboard: quest },
                             }}
                           >
                             Show Result
@@ -58,7 +57,10 @@ function TabQuestionsAns(props) {
                           <Link
                             to={{
                               pathname: `/question/${quest.id}`,
-                              state: { fromDashboard: quest },
+                              state: {
+                                fromDashboard: quest,
+                                ids: questions,
+                              },
                             }}
                           >
                             ANSWER QUESTION

@@ -4,7 +4,7 @@ import {
   _saveQuestion,
   _saveQuestionAnswer,
 } from "../utils/_DATA";
-import { LOAD_QUES, SAVE_QUES, SAVE_AUTH } from "./constants";
+import { LOAD_QUES, SAVE_QUES, SAVE_AUTH, FETCH_QUEST } from "./constants";
 
 export const saveQuestion =
   ({ question1, question2 }) =>
@@ -49,26 +49,42 @@ export const saveQuestionAnswer =
       const answer = questionAns.questionAnswer;
       const qid = questionId.id;
       let user = store.getState().auth.user;
+      let questions = store.getState().questions;
       let authedUser = user.id;
+
+      const updatedQuestions = {
+        [qid]: {
+          ...questions[qid],
+          [answer]: {
+            ...questions[qid][answer],
+            votes: questions[qid][answer].votes.concat([authedUser]),
+          },
+        },
+      };
+
       await _saveQuestionAnswer({ authedUser, qid, answer });
-
-      // const userData = {
-      //   ...user,
-      //   answers: { [qid]: user.questions.concat(answer) },
-      // };
-
       user.answers[qid] = answer;
+      questions[qid] = Object.values(updatedQuestions)[0];
 
-      let ques = await _getQuestions();
+      let quesSaved = await _getQuestions();
       dispatch({
         type: SAVE_QUES,
-        payload: ques,
+        payload: quesSaved,
+      });
+
+      dispatch({
+        type: FETCH_QUEST,
+        payload: questions,
       });
 
       dispatch({
         type: SAVE_AUTH,
         payload: user,
       });
+      // dispatch({
+      //   type: SAVE_AUTH,
+      //   payload: user,
+      // });
     } catch (e) {
       console.log("error", e);
     }

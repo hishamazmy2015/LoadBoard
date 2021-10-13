@@ -38,7 +38,7 @@ function Login({ location, history, path }) {
     dispatch(Auth(users[stateForm.value.id]));
     if (location.state && location.state.referrer)
       history.push(location.state.referrer.pathname);
-    else history.push("/LoaderBoard");
+    else history.push("/leaderboard");
   };
   return (
     <div className="">

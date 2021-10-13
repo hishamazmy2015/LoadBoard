@@ -22,17 +22,17 @@ function NavBar({ history }) {
           {/* <Nav className="me-auto"> */}
           <Link to="/">Home</Link>
           <Link to="/add">New Question</Link>
-          <Link to="/loaderboard">Loader Board</Link>
+          <Link to="/leaderboard">Loader Board</Link>
 
           {isAuthenticated ? (
             // <Link to="/logout">Logout</Link>
             <div>
               <span
                 style={{
-                  "text-align": "center",
+                  textAlign: "center",
                   float: "right",
-                  "font-size": "30px",
-                  "background-color": "#F3F5F6",
+                  fontSize: "30px",
+                  backgroundColor: "#F3F5F6",
                   marginLeft: "30%",
                 }}
               >
@@ -58,9 +58,9 @@ function NavBar({ history }) {
               >
                 <span
                   style={{
-                    "text-align": "right",
+                    textAlign: "right",
                     float: "right",
-                    "font-size": "10px",
+                    fontSize: "10px",
                     marginLeft: "10%",
                   }}
                 >

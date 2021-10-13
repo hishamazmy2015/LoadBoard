@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
-import { Card, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import { Card, Container, Row, Tab, Tabs } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { fetchQuestions } from "../actions/questionAction";
-import UserAction from "../actions/UserAction";
 import TabQuestionsAns from "./TabQuestionsAns";
 
 function LoaderBoard() {
@@ -21,7 +19,7 @@ function LoaderBoard() {
   const questions = Object.keys(questionss).map((key) => questionss[key]);
   return (
     <div>
-      <Container id="left-tabs-example" defaultActiveKey="first">
+      <Container id="left-tabs-example" >
         <Row>
           <Tabs
             defaultActiveKey="home"

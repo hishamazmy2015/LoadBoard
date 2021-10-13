@@ -6,5 +6,8 @@ export const SAVE_QUES = "SAVE_QUESTION";
 export const LOAD_QUES = "LOAD_QUES";
 // export const LOAD_QUES = "LOAD_QUES";
 export const REMOVE_USER = "REMOVE_USER";
+export const FETCH_QUEST = "FETCH_QUEST";
+
+
 
 

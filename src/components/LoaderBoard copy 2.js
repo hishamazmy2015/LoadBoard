@@ -19,7 +19,7 @@ function LoaderBoard() {
   const questions = Object.keys(questionss).map((key) => questionss[key]);
   return (
     <div>
-      <Container id="left-tabs-example" defaultActiveKey="first">
+      <Container id="left-tabs-example" >
         <Row>
           <Tabs
             defaultActiveKey="home"

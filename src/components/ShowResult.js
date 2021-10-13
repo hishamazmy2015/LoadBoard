@@ -3,9 +3,12 @@ import { Card, Col, Form, ProgressBar, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import UserAction from "../actions/UserAction";
+import Page404 from "./Page404";
 
 function ShowResult({ location, history }) {
-  const questionId = location.state.fromDashboard;
+
+  if (!location.state) return <Page404 />;
+  const questionId = location.state ? location.state.fromDashboard : "";
 
   const dispatch = useDispatch();
   const readFun = () => {
@@ -15,6 +18,7 @@ function ShowResult({ location, history }) {
   const lenQOne = questionId.optionOne.votes.length;
   const lenQTwo = questionId.optionTwo.votes.length;
   const total = lenQOne + lenQTwo;
+
   // const rationQOne = (lenQOne / total) * 100;
   // const rationQTwo = (lenQTwo / total) * 100;
 
@@ -32,7 +36,6 @@ function ShowResult({ location, history }) {
   return (
     <div>
       <div className="">
-        <br />
         <br />
         <br />
         <br />
@@ -67,9 +70,9 @@ function ShowResult({ location, history }) {
                   <br />
                   <span
                     style={{
-                      "text-align": "center",
+                      textAlign: "center",
                       float: "left",
-                      "font-size": "30px",
+                      fontSize: "30px",
                       // "background-color": "#F3F5F6",
                       marginLeft: "30%",
                     }}
@@ -90,7 +93,7 @@ function ShowResult({ location, history }) {
                   </span>
                 </Form.Group>
 
-                <Link to="/LoaderBoard">Back</Link>
+                <Link to="/leaderboard">Back</Link>
               </Form>
             </Card>
           </Col>
